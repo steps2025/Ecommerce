@@ -1,12 +1,12 @@
 {% load static %}
 <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
+        <div class="row" style="background-color: white;">
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo">
-                        <img src="{% static 'images/logo.png' %}">
+                    <a href="{% url 'index' %}" class="logo">
+                        <img  src="{% static 'images/Logoo.png' %}">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -20,16 +20,6 @@
                         <li class="scroll-to-section">
                             <a href="{% url 'contact' %}" class="{% if request.path == '/contact' %}active{% endif %}">Contact Us</a>
                         </li>
-                        
-                        <!-- <li class="submenu">
-                            <a href="javascript:;">Pages</a>
-                            <ul>
-                                <li><a href="about">About Us</a></li>
-                                <li><a href="products">Products</a></li>
-                                <li><a href="single-product">Single Product</a></li>
-                                <li><a href="contact">Contact Us</a></li>
-                            </ul>
-                        </li> -->
                     </ul>        
                     <a class='menu-trigger'>
                         <span>Menu</span>
