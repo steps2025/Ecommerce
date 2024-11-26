@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$da2d6bo^@v-xblb8mdy_ue5@rk@m-s&pspre19t-x5(^qmr8z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["w3y-studious-mendel.circumeo-apps.net",".themorticianmafia.com"]
+DEBUG = False
+# Allowed Hosts
+ALLOWED_HOSTS = ["w3y-studious-mendel.circumeo-apps.net","themorticianmafia.com","www.themorticianmafia.com"]
+CSRF_TRUSTED_ORIGINS = ["https://themorticianmafia.com","https://www.themorticianmafia.com"]
 
 
 # Application definition
