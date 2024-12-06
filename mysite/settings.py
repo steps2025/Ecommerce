@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$da2d6bo^@v-xblb8mdy_ue5@rk@m-s&pspre19t-x5(^qmr8z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # Allowed Hosts
-ALLOWED_HOSTS = ["w3y-studious-mendel.circumeo-apps.net","themorticianmafia.com","www.themorticianmafia.com"]
+# ALLOWED_HOSTS = ["w3y-studious-mendel.circumeo-apps.net","themorticianmafia.com","www.themorticianmafia.com"]
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
 CSRF_TRUSTED_ORIGINS = ["https://themorticianmafia.com","https://www.themorticianmafia.com"]
 
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -118,6 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'  # URL to use when referring to static files
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "myapp/static"),  # Only needed if using a global static folder outside apps
 ]
